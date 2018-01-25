@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <Windows.h>
+#include <Shellapi.h>
 
 #include "generated/NppAdminAccess.h"
 
