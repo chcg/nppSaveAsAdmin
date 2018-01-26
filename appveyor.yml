@@ -35,11 +35,11 @@ after_build:
     - ps: >-
 
         if ($env:PLATFORM_INPUT -eq "x64") {
-            Push-AppveyorArtifact "NppSaveAsAdmin\$env:PLATFORM\$env:CONFIGURATION\NppSaveAsAdmin.dll" -FileName NppSaveAsAdmin.dll
+            #Push-AppveyorArtifact "NppSaveAsAdmin\$env:PLATFORM\$env:CONFIGURATION\NppSaveAsAdmin.dll" -FileName NppSaveAsAdmin.dll
         }
 
         if ($env:PLATFORM_INPUT -eq "Win32" ) {
-            Push-AppveyorArtifact "NppSaveAsAdmin\$env:CONFIGURATION\NppSaveAsAdmin.dll" -FileName NppSaveAsAdmin.dll
+            #Push-AppveyorArtifact "NppSaveAsAdmin\$env:CONFIGURATION\NppSaveAsAdmin.dll" -FileName NppSaveAsAdmin.dll
         }
 
         if ($($env:APPVEYOR_REPO_TAG) -eq "true" -and $env:CONFIGURATION -eq "Release" -and $env:PLATFORMTOOLSET -eq "v140_xp") {
