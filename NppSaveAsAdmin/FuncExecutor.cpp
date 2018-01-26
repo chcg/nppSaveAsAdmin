@@ -12,10 +12,8 @@ bool ExecuteFunction(pipe &aPipe, const InData &aInData, Commands aCmdNum, OutDa
 	char tInBuffer[MaxBufferLen];
 	char tReadBuffer[MaxBufferLen];
 
-	tInBuffer[0]		= aCmdNum;
+	tInBuffer[0]		= static_cast<char>(aCmdNum);
 	memcpy(&tInBuffer[1], &aInData, sizeof InData);
-	DWORD tWritten		= 0;
-	//BOOL tWriteResult	= getFileFunctions().writeFile(aPipe, tInBuffer, sizeof InData + 1, &tWritten, NULL);
 	if( !aPipe.write(tInBuffer, sizeof InData + 1) )
 		return false;
 
@@ -123,6 +121,5 @@ BOOL ExecuteCloseHandle(pipe &aPipe, HANDLE aHandle)
 void ExecuteExit(pipe &aPipe)
 {
 	char tCode			= ExitCmd;
-	DWORD tWritten		= 0;
 	BOOL tWriteResult	= aPipe.write(&tCode, 1);
 }

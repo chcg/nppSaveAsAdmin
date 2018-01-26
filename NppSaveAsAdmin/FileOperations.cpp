@@ -67,7 +67,7 @@ void doInjection(const char *aModuleName, const char *aFunctionName, Proc &aSave
 				{
 					PROC* ppfn = (PROC*) &pThunk->u1.AddressOfData;
 
-					PIMAGE_IMPORT_BY_NAME pName =  (PIMAGE_IMPORT_BY_NAME)( (DWORD)hModule + pThunkOrig->u1.AddressOfData);
+					PIMAGE_IMPORT_BY_NAME pName =  (PIMAGE_IMPORT_BY_NAME)( (PBYTE)hModule + pThunkOrig->u1.AddressOfData);
 
 					if( 0 == strncmp(aFunctionName, (const char *)pName->Name, tNameLen) )
 					{

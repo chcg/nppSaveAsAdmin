@@ -127,7 +127,7 @@ bool pipe::write(const void *aBuffer, int aBufSize)
 {
 	DWORD tWritten = 0;
 	const BOOL tResult = WriteFile(mPipe, aBuffer, aBufSize, &tWritten, NULL);
-	return TRUE == tResult && tWritten == aBufSize;
+	return TRUE == tResult && tWritten == static_cast<DWORD>(aBufSize);
 }
 
 void pipe::close()

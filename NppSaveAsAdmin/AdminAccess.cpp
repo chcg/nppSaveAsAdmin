@@ -13,7 +13,10 @@ std::wstring getAdminAccessPath()
 	wchar_t tTempPath[MAX_PATH] = {0};
 	DWORD tLen = GetTempPathW(MAX_PATH, tTempPath);
 	if( tLen == 0 )
-		return false;
+	{
+		std::wstring emptyStr;
+		return emptyStr;
+	}
 	std::wstring tPathStr(tTempPath, tLen);
 	tPathStr += L"NppAdminAccess.exe";
 

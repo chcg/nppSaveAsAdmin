@@ -161,7 +161,7 @@ DWORD WINAPI MyGetFileType(HANDLE aHandle)
 
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  reasonForCall, 
-                       LPVOID lpReserved )
+                       LPVOID /*lpReserved*/ )
 {
     switch (reasonForCall)
     {
@@ -210,7 +210,7 @@ extern "C" __declspec(dllexport) FuncItem * getFuncsArray(int *nbF)
 std::wstring currentFilePath(SCNotification *notifyCode)
 {
 	wchar_t *theFullPath;
-	int avar = SendMessage(
+	LRESULT avar = SendMessage(
 		nppData._nppHandle,
 		NPPM_GETFULLPATHFROMBUFFERID,
 		(WPARAM)notifyCode->nmhdr.idFrom,
@@ -259,7 +259,7 @@ extern "C" __declspec(dllexport) void beNotified(SCNotification *notifyCode)
 // Please let me know if you need to access to some messages :
 // http://sourceforge.net/forum/forum.php?forum_id=482781
 //
-extern "C" __declspec(dllexport) LRESULT messageProc(UINT Message, WPARAM wParam, LPARAM lParam)
+extern "C" __declspec(dllexport) LRESULT messageProc(UINT /*Message*/, WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
 	return TRUE;
 }

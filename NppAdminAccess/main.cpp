@@ -12,7 +12,7 @@
 Commands getCommand(const char *aBuffer);
 //bool executeCommand(Commands aCmd, const void *aBuffer, int aDataSize);
 
-int WINAPI CALLBACK WinMain ( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd )
+int WINAPI CALLBACK WinMain ( HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*nShowCmd*/ )
 {
 	int tArgCount = 0;
 	LPWSTR *tArgs = CommandLineToArgvW(GetCommandLineW(), &tArgCount);
